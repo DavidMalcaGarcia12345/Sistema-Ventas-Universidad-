@@ -1,0 +1,38 @@
+{% extends "barra_usuario.html" %}
+{% block contenedor %}
+<div class="container my-4">
+  <h2 class="text-center text-dark mb-4">🛒 Mis Compras</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover align-middle shadow-sm">
+      <thead class="table-primary text-center">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio Unit.</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Hora</th>
+          <th scope="col">OPCION 1</th>
+          <th scope="col">OPCION 2</th>
+          <th scope="col">OPCION 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for x in compras_usuario %}
+          <tr>
+            <th scope="row">{{ x.Id_Compras_Usuario }}</th>
+            <td>{{ x.Nombre_Compras_Usuario }}</td>
+            <td>{{ x.Cantidad_Compras_Usuario }}</td>
+            <td>S/ {{ x.Precios_Compras_Usuario }}</td>
+            <td>{{ x.Fecha_Compras_Usuario }}</td>
+            <td>{{ x.Hora_compras_Usuario }}</td>
+            <td><a class='btn btn-warning' href="enlace_actualizar_compras_usuario/{{ x.Id_Compras_Usuario }}">ACTUALIZAR</a></td>
+            <td><a class='btn btn-danger' href="logica_eliminar_compras_usuario/{{ x.Id_Compras_Usuario }}">ELIMINAR</a></td>
+            <td><a class='btn btn-success' href="/enlace_registrar_realizar_compras/">REGISTRAR UBICACION</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock contenedor %}

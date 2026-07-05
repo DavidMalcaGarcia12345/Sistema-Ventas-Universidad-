@@ -1,0 +1,71 @@
+{% extends "barra_menu.html" %}
+{% block contenedor %}
+
+<div class="container my-5">
+
+  <!-- Encabezado -->
+  <div class="p-3 text-center text-light rounded-3 shadow mb-4"
+       style="background: linear-gradient(90deg, var(--bs-purple), var(--bs-indigo));">
+    <h2 class="m-0 fw-bold"><i class="bi bi-box-arrow-in-down me-2"></i>Tabla Ingresos Stock</h2>
+  </div>
+
+  <!-- Tabla -->
+  <div class="card shadow border-0 rounded-4">
+    <div class="card-body p-4">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle text-center mb-0">
+          <thead style="background: linear-gradient(90deg, var(--bs-purple), var(--bs-indigo));" class="text-white">
+            <tr>
+              <th>ID</th>
+              <th>ENUMERACION</th>
+              <th>EMPRESA EMISION</th>
+              <th>NOMBRE PRODUCTO</th>
+              <th>CANTIDAD UNIDAD</th>
+              <th>FECHA RECEPCION</th>
+              <th>OPCION 1</th>
+              <th>OPCION 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for x in almacen %}
+              <tr>
+                <th>{{ forloop.counter }}</th>
+                <th>{{ x.Enumeracion_Recepcion }}</th>
+                <td>
+                  <span class="badge bg-primary rounded-pill px-3">
+                    <i class="bi bi-building me-1"></i>{{ x.Empresa_Emision }}
+                  </span>
+                </td>
+                <td class="fw-semibold">
+                  <i class="bi bi-box-seam text-success me-1"></i>
+                  {{ x.Nombre_Producto }}
+                </td>
+                <td>
+                  <span class="badge bg-success rounded-pill px-3">
+                    <i class="bi bi-stack me-1"></i>{{ x.Cantidad_Producto }}
+                  </span>
+                </td>
+                <td><small class="text-muted">{{ x.Fecha_Producto }}</small></td>
+                <td>
+                  <a class="btn btn-danger btn-sm fw-semibold rounded-pill px-3"
+                     href="logica_eliminar_ingresos_prodcutos/{{ x.Enumeracion_Recepcion }}">
+                    <i class="bi bi-trash me-1"></i>Eliminar
+                  </a>
+                </td>
+                <td>
+                  <a class="btn btn-warning btn-sm fw-semibold rounded-pill px-3"
+                     href="enlace_actualizar_ingresos_productos/{{ x.Enumeracion_Recepcion }}">
+                    <i class="bi bi-pencil me-1"></i>Editar
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock contenedor %}

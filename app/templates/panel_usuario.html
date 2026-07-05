@@ -1,0 +1,96 @@
+{% extends "barra_usuario.html" %}
+{% block contenedor %}
+
+<div class="container mt-5">
+
+  <!-- Encabezado principal -->
+  <div class="p-3 text-center text-light rounded-3 shadow mb-5"
+       style="background: linear-gradient(90deg, var(--bs-success), var(--bs-teal));">
+    <h2 class="m-0 fw-bold" style="font-size: 1.8rem;">
+      <i class="bi bi-person-circle me-2"></i>PANEL USUARIO - COMPRAS Y PRODUCTOS
+    </h2>
+  </div>
+
+  <!-- Cards -->
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Mis Compras -->
+      <div class="col-md-4">
+        <div class="card shadow border-0 rounded-4 h-100">
+          <div class="card-header border-0 rounded-top-4 text-white fw-bold py-3"
+               style="background: linear-gradient(90deg, #0d6efd, #0a58ca);">
+            <i class="bi bi-bag-check me-2"></i>Mis Compras
+          </div>
+          <div class="card-body d-flex flex-column p-4">
+            <p class="card-text text-muted flex-grow-1">
+              Consulta el historial de tus compras realizadas.
+            </p>
+            <a href="/enlace_tabla_compras_usuario/"
+               class="btn btn-outline-primary w-100 fw-semibold rounded-pill mt-2">
+              <i class="bi bi-eye me-1"></i>Ver Mis Compras
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Productos Disponibles -->
+      <div class="col-md-4">
+        <div class="card shadow border-0 rounded-4 h-100">
+          <div class="card-header border-0 rounded-top-4 text-white fw-bold py-3"
+               style="background: linear-gradient(90deg, var(--bs-success), var(--bs-teal));">
+            <i class="bi bi-grid me-2"></i>Productos Disponibles
+          </div>
+          <div class="card-body d-flex flex-column p-4">
+            <p class="card-text text-muted flex-grow-1">
+              Explora el catálogo de productos disponibles en stock.
+            </p>
+            <a href="/enlace_tabla_producto_disponible/"
+               class="btn btn-outline-success w-100 fw-semibold rounded-pill mt-2">
+              <i class="bi bi-eye me-1"></i>Ver Catálogo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registrar Ubicación -->
+      <div class="col-md-4">
+        <div class="card shadow border-0 rounded-4 h-100">
+          <div class="card-header border-0 rounded-top-4 text-dark fw-bold py-3"
+               style="background: linear-gradient(90deg, #ffc107, #fd7e14);">
+            <i class="bi bi-geo-alt me-2"></i>Registrar Ubicación Entrega
+          </div>
+          <div class="card-body d-flex flex-column p-4">
+            <p class="card-text text-muted flex-grow-1">
+              Registra una nueva ubicación de entrega para tu pedido.
+            </p>
+            <a href="/enlace_tabla_realizar_pedido_usuario/"
+               class="btn btn-outline-warning w-100 fw-semibold rounded-pill mt-2">
+              <i class="bi bi-eye me-1"></i>Ver Ubicación
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {% comment %} <div class="card shadow mb-4">
+    <h5 class="card-header bg-info text-white">Estado de Pedidos</h5>
+    <div class="card-body">
+      <p class="card-text text-muted">Revisa el estado actual de tus pedidos en proceso.</p>
+      <a href="#" class="btn btn-outline-info w-100">Ver Estado</a>
+    </div>
+  </div>
+
+  <div class="card shadow mb-4">
+    <h5 class="card-header bg-secondary text-white">Mi Perfil</h5>
+    <div class="card-body">
+      <p class="card-text text-muted">Consulta y actualiza tus datos personales.</p>
+      <a href="#" class="btn btn-outline-secondary w-100">Ver Perfil</a>
+    </div>
+  </div> {% endcomment %}
+
+</div>
+
+{% endblock contenedor %}

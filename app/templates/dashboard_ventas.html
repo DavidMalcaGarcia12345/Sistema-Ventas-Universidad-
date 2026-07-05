@@ -1,0 +1,163 @@
+{% extends "barra_menu.html" %}
+{% block contenedor %}
+
+<div class="container mt-5">
+
+  <!-- Encabezado -->
+  <div class="p-3 text-center text-light rounded-3 shadow mb-4"
+       style="background: linear-gradient(90deg, var(--bs-purple), var(--bs-indigo));">
+    <h2 class="m-0 fw-bold"><i class="bi bi-bar-chart-line me-2"></i>Dashboard de Ventas</h2>
+  </div>
+
+  <!-- Cards resumen -->
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+      <div class="card border-0 shadow text-center rounded-4 p-3">
+        <i class="bi bi-bag-check fs-2 text-primary"></i>
+        <h4 class="fw-bold mt-2 mb-0">8</h4>
+        <small class="text-muted">Total Vendido</small>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card border-0 shadow text-center rounded-4 p-3">
+        <i class="bi bi-cash-stack fs-2 text-success"></i>
+        <h4 class="fw-bold mt-2 mb-0">S/ 26</h4>
+        <small class="text-muted">Total Ingresos</small>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card border-0 shadow text-center rounded-4 p-3">
+        <i class="bi bi-box-seam fs-2 text-warning"></i>
+        <h4 class="fw-bold mt-2 mb-0">3</h4>
+        <small class="text-muted">Productos</small>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="card border-0 shadow text-center rounded-4 p-3">
+        <i class="bi bi-calendar-check fs-2 text-danger"></i>
+        <h4 class="fw-bold mt-2 mb-0">2</h4>
+        <small class="text-muted">Días con ventas</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gráficos -->
+  <div class="row g-4">
+
+    <!-- Gráfico cantidad vendida -->
+    <div class="col-md-6">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-4">
+          <h5 class="fw-bold text-center mb-3">
+            <i class="bi bi-bar-chart me-2 text-primary"></i>Cantidad vendida por producto
+          </h5>
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráfico ingresos por fecha -->
+    <div class="col-md-6">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-4">
+          <h5 class="fw-bold text-center mb-3">
+            <i class="bi bi-cash-coin me-2 text-success"></i>Ingresos por fecha (S/)
+          </h5>
+          <canvas id="incomeChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Datos
+  const productos = ["Chocolate", "Lechita", "Pan"];
+  const cantidades = [1, 3, 4];
+  const precios = [5, 15, 6];
+  const fechas = ["11/04/2026", "12/04/2026", "12/04/2026"];
+
+  // Gráfico de barras (Cantidad vendida)
+  new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: {
+      labels: productos,
+      datasets: [{
+        label: "Cantidad vendida",
+        data: cantidades,
+        backgroundColor: ["#7c3aed", "#6d28d9", "#4f46e5"],
+        borderRadius: 8,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return "Cantidad: " + context.parsed.y;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { color: "#f0f0f0" },
+          ticks: { color: "#6b7280" }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { color: "#6b7280" }
+        }
+      }
+    }
+  });
+
+  // Gráfico de barras (Ingresos por fecha)
+  new Chart(document.getElementById("incomeChart"), {
+    type: "bar",
+    data: {
+      labels: fechas,
+      datasets: [{
+        label: "Ingresos (S/)",
+        data: precios,
+        backgroundColor: ["#059669", "#10b981", "#34d399"],
+        borderRadius: 8,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return "S/ " + context.parsed.y;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { color: "#f0f0f0" },
+          ticks: {
+            color: "#6b7280",
+            callback: function(value) { return "S/ " + value; }
+          },
+          title: { display: true, text: "Soles (S/)", color: "#6b7280" }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { color: "#6b7280" }
+        }
+      }
+    }
+  });
+</script>
+
+{% endblock contenedor %}

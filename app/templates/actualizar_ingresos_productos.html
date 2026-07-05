@@ -1,0 +1,35 @@
+{% extends "barra_menu.html" %}
+{% block contenedor %}
+<h1 class='text-center my-5'>Registrar Ingresos Productos</h1>
+<div class='my-5 container'>
+    <form method='POST' action='/logica_actualizar_ingresos_productos/'> {% csrf_token %}
+        <div class="mb-3">
+            <label for="" class="form-label">ENUMERACION</label>
+            <input type="text" class="form-control" id="txtEnumeracion" name="txtEnumeracion" value="{{ actualizar_almacen.Enumeracion_Recepcion }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">EMPRESA EMISION</label>
+            <input type="text" class="form-control" id="txtNombre" name="txtNombre" value="{{ actualizar_almacen.Empresa_Emision }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">NOMBRE PRODUCTO</label>
+            <input type="text" class="form-control" id="txtCategoria" name="txtCategoria" value="{{ actualizar_almacen.Nombre_Producto }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">CANTIDAD UNIDAD</label>
+            <input type="number" class="form-control" id="txtCantidad" name="txtCantidad" value="{{ actualizar_almacen.Cantidad_Producto }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">FECHA INGRESO</label>
+            <input type="date" class="form-control" id="txtFecha" name="txtFecha" value="{{ actualizar_almacen.Fecha_Producto }}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" href='/enlace_tabla_ingresos_productos/'>GUARDAR</button>
+        
+    </form>
+</div>
+{% endblock contenedor %}

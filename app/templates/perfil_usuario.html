@@ -1,0 +1,108 @@
+{% extends "barra_usuario.html" %}
+{% block contenedor %}
+
+<div class="container mt-5">
+
+  <!-- Encabezado -->
+  <div class="p-3 text-center text-light rounded-3 shadow mb-4"
+       style="background: linear-gradient(90deg, var(--bs-success), var(--bs-teal));">
+    <h2 class="m-0 fw-bold">Mi Perfil</h2>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-5">
+
+          <!-- Avatar e nombre -->
+          <div class="text-center mb-4">
+            <div class="rounded-circle d-inline-flex align-items-center justify-content-center text-white fw-bold shadow"
+                 style="width:100px; height:100px; font-size:2.5rem;
+                        background: linear-gradient(135deg, var(--bs-success), var(--bs-teal));">
+              DM
+            </div>
+            <h3 class="mt-3 fw-bold text-dark">David Malca Garcia</h3>
+            <span class="badge rounded-pill bg-success px-3 py-2">Usuario Activo</span>
+          </div>
+
+          <hr>
+
+          <!-- Datos del perfil -->
+          <div class="row g-3 mt-2">
+
+            <div class="col-md-6">
+              <div class="p-3 rounded-3 border" style="background-color: #f8f9fa;">
+                <small class="text-muted fw-semibold">
+                  <i class="bi bi-person me-1"></i>Nombre completo
+                </small>
+                <p class="mb-0 fw-bold text-dark mt-1">David Malca Garcia</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="p-3 rounded-3 border" style="background-color: #f8f9fa;">
+                <small class="text-muted fw-semibold">
+                  <i class="bi bi-person-badge me-1"></i>Usuario
+                </small>
+                <p class="mb-0 fw-bold text-dark mt-1">david.malca</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="p-3 rounded-3 border" style="background-color: #f8f9fa;">
+                <small class="text-muted fw-semibold">
+                  <i class="bi bi-envelope me-1"></i>Correo electrónico
+                </small>
+                <p class="mb-0 fw-bold text-dark mt-1">david.malca@tambo.pe</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="p-3 rounded-3 border" style="background-color: #f8f9fa;">
+                <small class="text-muted fw-semibold">
+                  <i class="bi bi-telephone me-1"></i>Teléfono
+                </small>
+                <p class="mb-0 fw-bold text-dark mt-1">+51 987 654 321</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="p-3 rounded-3 border" style="background-color: #f8f9fa;">
+                <small class="text-muted fw-semibold">
+                  <i class="bi bi-geo-alt me-1"></i>Dirección
+                </small>
+                <p class="mb-0 fw-bold text-dark mt-1">Lima, Perú</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="p-3 rounded-3 border" style="background-color: #f8f9fa;">
+                <small class="text-muted fw-semibold">
+                  <i class="bi bi-calendar me-1"></i>Fecha de registro
+                </small>
+                <p class="mb-0 fw-bold text-dark mt-1">03 de Junio, 2026</p>
+              </div>
+            </div>
+
+          </div>
+
+          <hr class="mt-4">
+
+          <!-- Botones -->
+          <div class="d-flex gap-3 justify-content-center mt-3">
+            <a href="#" class="btn btn-success px-4 fw-bold">
+              <i class="bi bi-pencil-square me-1"></i>Editar Perfil
+            </a>
+            <a href="#" class="btn btn-outline-secondary px-4 fw-bold">
+              <i class="bi bi-lock me-1"></i>Cambiar Contraseña
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock contenedor %}

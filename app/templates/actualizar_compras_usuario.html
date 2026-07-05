@@ -1,0 +1,106 @@
+{% extends "barra_usuario.html" %}
+{% block contenedor %}
+
+<div class="container mt-5">
+
+  <!-- Encabezado -->
+  <div class="p-3 text-center text-light rounded-3 shadow mb-4"
+       style="background: linear-gradient(90deg, var(--bs-success), var(--bs-teal));">
+    <h2 class="m-0 fw-bold"><i class="bi bi-cart-check me-2"></i>Actualizar Compra</h2>
+  </div>
+
+  <div class="row justify-content-center">
+
+    <!-- Formulario -->
+    <div class="col-md-7">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-4">
+          <h5 class="fw-bold mb-4 text-success">
+            <i class="bi bi-pencil-square me-2"></i>Editar Datos de la Compra
+          </h5>
+
+          <form method="POST" action="/logica_actualizar_compras_usuario/"> {% csrf_token %}
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="TxtId" class="form-label fw-semibold">
+                  <i class="bi bi-hash me-1 text-success"></i>Id
+                </label>
+                <input type="text" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtId" name="TxtId"
+                       placeholder="Ingrese ID de compra"
+                       required value="{{ usuario.Id_Compras_Usuario }}">
+              </div>
+              <div class="col-md-6">
+                <label for="TxtNombre" class="form-label fw-semibold">
+                  <i class="bi bi-box-seam me-1 text-success"></i>Nombre
+                </label>
+                <input type="text" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtNombre" name="TxtNombre"
+                       placeholder="Nombre del producto"
+                       required value="{{ usuario.Nombre_Compras_Usuario }}">
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="TxtCantidad" class="form-label fw-semibold">
+                  <i class="bi bi-123 me-1 text-warning"></i>Cantidad
+                </label>
+                <input type="number" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtCantidad" name="TxtCantidad"
+                       placeholder="0"
+                       required value="{{ usuario.Cantidad_Compras_Usuario }}">
+              </div>
+              <div class="col-md-6">
+                <label for="TxtPrecios" class="form-label fw-semibold">
+                  <i class="bi bi-cash-coin me-1 text-success"></i>Precios
+                </label>
+                <div class="input-group shadow-sm">
+                  <span class="input-group-text bg-light border-0 fw-bold text-success">S/</span>
+                  <input type="number" step="0.01" class="form-control border-0 bg-light"
+                         id="TxtPrecios" name="TxtPrecios"
+                         placeholder="0.00"
+                         required value="{{ usuario.Precios_Compras_Usuario }}">
+                </div>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label for="TxtFecha" class="form-label fw-semibold">
+                  <i class="bi bi-calendar-event me-1 text-success"></i>Fecha
+                </label>
+                <input type="date" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtFecha" name="TxtFecha"
+                       required value="{{ usuario.Fecha_Compras_Usuario }}">
+              </div>
+              <div class="col-md-6">
+                <label for="TxtHora" class="form-label fw-semibold">
+                  <i class="bi bi-clock me-1 text-success"></i>Hora
+                </label>
+                <input type="time" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtHora" name="TxtHora"
+                       required value="{{ usuario.Hora_compras_Usuario }}">
+              </div>
+            </div>
+
+            <div class="d-flex gap-3">
+              <button type="submit" class="btn fw-bold w-100 text-white shadow-sm"
+                      style="background: linear-gradient(90deg, var(--bs-success), var(--bs-teal)); border: none;">
+                <i class="bi bi-check-circle me-2"></i>Guardar Cambios
+              </button>
+              <a href="/enlace_tabla_compras_usuario/" class="btn btn-outline-secondary fw-bold px-4 shadow-sm">
+                <i class="bi bi-x-circle me-1"></i>Cancelar
+              </a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock contenedor %}

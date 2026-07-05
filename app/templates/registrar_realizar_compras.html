@@ -1,0 +1,152 @@
+{% extends "barra_usuario.html" %}
+{% block contenedor %}
+
+<div class="container mt-5">
+
+  <!-- Encabezado -->
+  <div class="p-3 text-center text-light rounded-3 shadow mb-4"
+       style="background: linear-gradient(90deg, var(--bs-success), var(--bs-teal));">
+    <h2 class="m-0 fw-bold"><i class="bi bi-geo-alt me-2"></i>Registrar Ubicación</h2>
+  </div>
+
+  <div class="row justify-content-center">
+
+    <!-- Formulario -->
+    <div class="col-md-7">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-4">
+          <h5 class="fw-bold mb-4 text-success">
+            <i class="bi bi-clipboard-plus me-2"></i>Datos del Pedido
+          </h5>
+
+          <form method="POST" action="/logica_tabla_registrar_pedido_usuario/"> {% csrf_token %}
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="TxtId" class="form-label fw-semibold">
+                  <i class="bi bi-hash me-1 text-success"></i>Id
+                </label>
+                <input type="text" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtId" name="TxtId"
+                       placeholder="Ingrese ID del pedido" required>
+              </div>
+              <div class="col-md-6">
+                <label for="TxtNombreDistrito" class="form-label fw-semibold">
+                  <i class="bi bi-bag me-1 text-success"></i>NOMBRE PEDIDO
+                </label>
+                <input type="text" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtNombreDistrito" name="TxtNombreDistrito"
+                       placeholder="Nombre del pedido" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="TxtUbicacionExacta" class="form-label fw-semibold">
+                <i class="bi bi-geo-alt me-1 text-danger"></i>DIRECCIÓN EXACTA
+              </label>
+              <input type="text" class="form-control border-0 shadow-sm bg-light"
+                     id="TxtUbicacionExacta" name="TxtUbicacionExacta"
+                     placeholder="Ej: Av. Los Olivos 123, Lima" required>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="TxtCantidad" class="form-label fw-semibold">
+                  <i class="bi bi-calendar-event me-1 text-success"></i>FECHA
+                </label>
+                <input type="date" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtCantidad" name="TxtCantidad" required>
+              </div>
+              <div class="col-md-6">
+                <label for="TxtPrecios" class="form-label fw-semibold">
+                  <i class="bi bi-clock me-1 text-success"></i>HORA
+                </label>
+                <input type="time" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtPrecios" name="TxtPrecios" required>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label for="TxtFecha" class="form-label fw-semibold">
+                  <i class="bi bi-credit-card me-1 text-primary"></i>MÉTODO PAGO
+                </label>
+                <input type="text" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtFecha" name="TxtFecha"
+                       placeholder="Ej: Yape, Efectivo, Plin" required>
+              </div>
+              <div class="col-md-6">
+                <label for="TxtHora" class="form-label fw-semibold">
+                  <i class="bi bi-chat-left-text me-1 text-warning"></i>OBSERVACIÓN
+                </label>
+                <input type="text" class="form-control border-0 shadow-sm bg-light"
+                       id="TxtHora" name="TxtHora"
+                       placeholder="Alguna indicación adicional" required>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3">
+              <button type="submit" class="btn fw-bold w-100 text-white shadow-sm"
+                      style="background: linear-gradient(90deg, var(--bs-success), var(--bs-teal)); border: none;">
+                <i class="bi bi-check-circle me-2"></i>Guardar
+              </button>
+              <a href="/panel_usuario/" class="btn btn-outline-secondary fw-bold px-4 shadow-sm">
+                <i class="bi bi-x-circle me-1"></i>Cancelar
+              </a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card indicaciones -->
+    <div class="col-md-4">
+      <div class="card shadow border-0 rounded-4"
+           style="background: linear-gradient(135deg, #f0fdf4, #ccfbf1);">
+        <div class="card-body p-4">
+          <h5 class="fw-bold mb-3 text-success">
+            <i class="bi bi-info-circle me-2"></i>Indicaciones
+          </h5>
+          <ul class="list-unstyled mb-0">
+            <li class="d-flex align-items-center gap-2 mb-3 p-2 rounded-3 bg-white shadow-sm">
+              <span class="badge rounded-circle d-flex align-items-center justify-content-center bg-success"
+                    style="width:28px; height:28px;">1</span>
+              Ingresa el <strong>ID</strong> único del pedido
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-3 p-2 rounded-3 bg-white shadow-sm">
+              <span class="badge rounded-circle d-flex align-items-center justify-content-center bg-success"
+                    style="width:28px; height:28px;">2</span>
+              Escribe el <strong>nombre</strong> del pedido a entregar
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-3 p-2 rounded-3 bg-white shadow-sm">
+              <span class="badge rounded-circle d-flex align-items-center justify-content-center bg-success"
+                    style="width:28px; height:28px;">3</span>
+              Indica la <strong>dirección exacta</strong> de entrega
+              <span class="badge bg-danger ms-1">📍</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-3 p-2 rounded-3 bg-white shadow-sm">
+              <span class="badge rounded-circle d-flex align-items-center justify-content-center bg-success"
+                    style="width:28px; height:28px;">4</span>
+              Selecciona la <strong>fecha</strong> y <strong>hora</strong> de entrega
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-3 p-2 rounded-3 bg-white shadow-sm">
+              <span class="badge rounded-circle d-flex align-items-center justify-content-center bg-success"
+                    style="width:28px; height:28px;">5</span>
+              Elige el <strong>método de pago</strong>
+              <span class="badge bg-primary ms-1">💳</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 p-2 rounded-3 bg-white shadow-sm">
+              <span class="badge rounded-circle d-flex align-items-center justify-content-center bg-success"
+                    style="width:28px; height:28px;">6</span>
+              Agrega una <strong>observación</strong> si es necesario
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock contenedor %}

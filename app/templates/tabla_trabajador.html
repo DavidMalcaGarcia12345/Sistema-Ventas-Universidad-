@@ -1,0 +1,76 @@
+{% extends "barra_menu.html" %}
+{% block contenedor %}
+
+<div class="container my-5">
+
+  <!-- Encabezado -->
+  <div class="p-3 text-center text-light rounded-3 shadow mb-4"
+       style="background: linear-gradient(90deg, var(--bs-purple), var(--bs-indigo));">
+    <h2 class="m-0 fw-bold"><i class="bi bi-person-vcard me-2"></i>Tabla Trabajador</h2>
+  </div>
+
+  <!-- Tabla -->
+  <div class="card shadow border-0 rounded-4">
+    <div class="card-body p-4">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle text-center mb-0">
+          <thead style="background: linear-gradient(90deg, var(--bs-purple), var(--bs-indigo));" class="text-white">
+            <tr>
+              <th>ID</th>
+              <th>Enumeracion</th>
+              <th>Nombre Completo</th>
+              <th>DNI</th>
+              <th>Cargo</th>
+              <th>Hora Laboral</th>
+              <th>Fecha Ingreso</th>
+              <th>ELIMINAR</th>
+              <th>EDITAR</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for x in trabajador %}
+              <tr>
+                <th>{{ forloop.counter }}</th>
+                <td>{{ x.Enumeracion_Trabajador }}</td>
+                <td class="fw-semibold">
+                  <i class="bi bi-person-fill text-secondary me-1"></i>
+                  {{ x.Nombre_Trabajador }}
+                </td>
+                <td>
+                  <span class="badge bg-dark rounded-pill px-3">
+                    <i class="bi bi-card-text me-1"></i>{{ x.Apellido_Trabajador }}
+                  </span>
+                </td>
+                <td>
+                  <span class="badge bg-info text-dark rounded-pill px-3">
+                    <i class="bi bi-briefcase me-1"></i>{{ x.Cargo_Trabajador }}
+                  </span>
+                </td>
+                <td>
+                  <i class="bi bi-clock text-warning me-1"></i>
+                  {{ x.Hora_Trabajador }}
+                </td>
+                <td><small class="text-muted">{{ x.Fecha_Trabajador }}</small></td>
+                <td>
+                  <a href="logica_eliminar_trabajador/{{ x.Enumeracion_Trabajador }}"
+                     class="btn btn-danger btn-sm fw-semibold rounded-pill px-3">
+                    <i class="bi bi-trash me-1"></i>Eliminar
+                  </a>
+                </td>
+                <td>
+                  <a href="enlace_actualizar_trabajador/{{ x.Enumeracion_Trabajador }}"
+                     class="btn btn-warning btn-sm fw-semibold rounded-pill px-3">
+                    <i class="bi bi-pencil me-1"></i>Editar
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

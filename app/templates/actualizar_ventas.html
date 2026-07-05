@@ -1,0 +1,40 @@
+{% extends "barra_menu.html" %}
+{% block contenedor %}
+<h1 class='text-center my-5'>ACTUALIZAR VENTAS</h1>
+<div class='my-5 container'>
+    <form method='POST' action='/logica_actualizar_ventas/'> {% csrf_token %}
+        <div class="mb-3">
+            <label for="" class="form-label">ENUMERACION</label>
+            <input type="text" class="form-control" id="txtEnumeracion" name="txtEnumeracion" value="{{ actualizar_ventas.Enumearcion_Ventas }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">NOMBRE PRODUCTO</label>
+            <input type="text" class="form-control" id="txtNombre" name="txtNombre" value="{{ actualizar_ventas.Nombre_Ventas }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">CATEGORIA PRODUCTO</label>
+            <input type="text" class="form-control" id="txtCategoria" name="txtCategoria" value="{{ actualizar_ventas.Categoria_ventas }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">CANTIDAD</label>
+            <input type="number" class="form-control" id="txtCantidad" name="txtCantidad" value="{{ actualizar_ventas.Cantidad_ventas }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">PRECIO</label>
+            <input type="text" class="form-control" id="txtPrecio" name="txtPrecio" value="{{ actualizar_ventas.Precio_ventas }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">FECHA</label>
+            <input type="date" class="form-control" id="txtFecha" name="txtFecha" value="{{ actualizar_ventas.Fecha_ventas }}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" href='/enlace_tabla_registro_ventas/'>GUARDAR</button>
+        
+    </form>
+</div>
+{% endblock contenedor %}

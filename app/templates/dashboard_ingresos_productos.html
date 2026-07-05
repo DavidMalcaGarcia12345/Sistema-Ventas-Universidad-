@@ -1,0 +1,163 @@
+{% extends "barra_menu.html" %}
+{% block contenedor %}
+
+<div class="container mt-5">
+
+  <!-- Encabezado -->
+  <div class="p-3 text-center text-light rounded-3 shadow mb-4"
+       style="background: linear-gradient(90deg, var(--bs-purple), var(--bs-indigo));">
+    <h2 class="m-0 fw-bold"><i class="bi bi-graph-up-arrow me-2"></i>Dashboard Ingresos Stock</h2>
+  </div>
+
+  <!-- Cards resumen -->
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-md-4">
+      <div class="card border-0 shadow text-center rounded-4 p-3">
+        <i class="bi bi-box-seam fs-2 text-primary"></i>
+        <h4 class="fw-bold mt-2 mb-0">3</h4>
+        <small class="text-muted">Productos Recibidos</small>
+      </div>
+    </div>
+    <div class="col-6 col-md-4">
+      <div class="card border-0 shadow text-center rounded-4 p-3">
+        <i class="bi bi-building fs-2 text-success"></i>
+        <h4 class="fw-bold mt-2 mb-0">3</h4>
+        <small class="text-muted">Empresas Emisoras</small>
+      </div>
+    </div>
+    <div class="col-6 col-md-4">
+      <div class="card border-0 shadow text-center rounded-4 p-3">
+        <i class="bi bi-stack fs-2 text-warning"></i>
+        <h4 class="fw-bold mt-2 mb-0">197</h4>
+        <small class="text-muted">Total Unidades</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fila gráficos superiores -->
+  <div class="row g-4 mb-4">
+
+    <!-- Gráfico cantidad por producto -->
+    <div class="col-md-6">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-4">
+          <h5 class="fw-bold text-center mb-3">
+            <i class="bi bi-bar-chart me-2 text-primary"></i>Cantidad por producto
+          </h5>
+          <canvas id="barProductos"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráfico cantidad por empresa -->
+    <div class="col-md-6">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-4">
+          <h5 class="fw-bold text-center mb-3">
+            <i class="bi bi-building me-2 text-success"></i>Cantidad por empresa
+          </h5>
+          <canvas id="barEmpresas"></canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Gráfico cantidad por fecha -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-4">
+          <h5 class="fw-bold text-center mb-3">
+            <i class="bi bi-calendar-week me-2 text-warning"></i>Cantidad por fecha recepción
+          </h5>
+          <canvas id="barFechas"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Datos de la tabla
+  const productos = ["Cerveza", "Gaseosa 350 ml", "Arsenal"];
+  const cantidades = [148, 125, 118];
+  const empresas = ["Backups", "KR", "Amirate Stedium"];
+  const fechas = ["04/04/2026", "12/04/2026", "12/04/2026"];
+
+  const opcionesBase = {
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return context.parsed.y + " unidades";
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: { color: "#f0f0f0" },
+        ticks: { color: "#6b7280" }
+      },
+      x: {
+        grid: { display: false },
+        ticks: { color: "#6b7280" }
+      }
+    }
+  };
+
+  // Gráfico cantidad por producto
+  new Chart(document.getElementById("barProductos"), {
+    type: "bar",
+    data: {
+      labels: productos,
+      datasets: [{
+        label: "Cantidad (unidades)",
+        data: cantidades,
+        backgroundColor: ["#7c3aed", "#6d28d9", "#4f46e5"],
+        borderRadius: 8,
+        borderSkipped: false,
+      }]
+    },
+    options: opcionesBase
+  });
+
+  // Gráfico cantidad por empresa
+  new Chart(document.getElementById("barEmpresas"), {
+    type: "bar",
+    data: {
+      labels: empresas,
+      datasets: [{
+        label: "Cantidad (unidades)",
+        data: cantidades,
+        backgroundColor: ["#059669", "#10b981", "#34d399"],
+        borderRadius: 8,
+        borderSkipped: false,
+      }]
+    },
+    options: opcionesBase
+  });
+
+  // Gráfico cantidad por fecha
+  new Chart(document.getElementById("barFechas"), {
+    type: "bar",
+    data: {
+      labels: fechas,
+      datasets: [{
+        label: "Cantidad (unidades)",
+        data: cantidades,
+        backgroundColor: ["#f59e0b", "#d97706", "#b45309"],
+        borderRadius: 8,
+        borderSkipped: false,
+      }]
+    },
+    options: opcionesBase
+  });
+</script>
+
+{% endblock contenedor %}

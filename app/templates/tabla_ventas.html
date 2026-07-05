@@ -1,0 +1,64 @@
+{% extends "barra_menu.html" %}
+{% block contenedor %}
+
+<div class="container my-5">
+
+  <!-- Encabezado -->
+  <div class="p-3 text-center text-light rounded-3 shadow mb-4"
+       style="background: linear-gradient(90deg, var(--bs-purple), var(--bs-indigo));">
+    <h2 class="m-0 fw-bold"><i class="bi bi-receipt me-2"></i>Tabla Registro Ventas</h2>
+  </div>
+
+  <!-- Tabla -->
+  <div class="card shadow border-0 rounded-4">
+    <div class="card-body p-4">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle text-center mb-0">
+          <thead style="background: linear-gradient(90deg, var(--bs-purple), var(--bs-indigo));" class="text-white">
+            <tr>
+              <th>ID</th>
+              <th>ENUMERACION</th>
+              <th>NOMBRE</th>
+              <th>CATEGORIA</th>
+              <th>CANTIDAD</th>
+              <th>PRECIO</th>
+              <th>FECHA</th>
+              <th>ELIMINAR</th>
+              <th>EDITAR</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for x in ventas %}
+              <tr>
+                <th>{{ forloop.counter }}</th>
+                <td>{{ x.Enumearcion_Ventas }}</td>
+                <td class="fw-semibold">{{ x.Nombre_Ventas }}</td>
+                <td>
+                  <span class="badge bg-primary rounded-pill px-3">{{ x.Categoria_ventas }}</span>
+                </td>
+                <td>{{ x.Cantidad_ventas }}</td>
+                <td class="fw-bold text-success">{{ x.Precio_ventas }}</td>
+                <td><small class="text-muted">{{ x.Fecha_ventas }}</small></td>
+                <td>
+                  <a href="logica_eliminar_ventas/{{ x.Enumearcion_Ventas }}" 
+                     class="btn btn-danger btn-sm fw-semibold rounded-pill px-3">
+                    <i class="bi bi-trash me-1"></i>Eliminar
+                  </a>
+                </td>
+                <td>
+                  <a href="enlace_actualizar_ventas/{{ x.Enumearcion_Ventas }}" 
+                     class="btn btn-warning btn-sm fw-semibold rounded-pill px-3">
+                    <i class="bi bi-pencil me-1"></i>Editar
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

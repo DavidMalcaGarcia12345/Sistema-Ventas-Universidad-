@@ -1,0 +1,38 @@
+{% extends "barra_menu.html" %}
+{% block contenedor %}
+<h1 class='text-center my-5'>Registrar Asistencias</h1>
+<div class='my-5 container'>
+    <form method='POST' action='/logica_actualizar_asistencias/'> {% csrf_token %}
+        <div class="mb-3">
+            <label for="" class="form-label">ENUMERACION</label>
+            <input type="text" class="form-control" id="txtEnumeracion" name="txtEnumeracion" value="{{ actualizar_asistencias.Enumeracion_Asistencias }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">NOMBRE TRABAJADOR</label>
+            <input type="text" class="form-control" id="txtNombre" name="txtNombre" value="{{ actualizar_asistencias.Nombre_Asistencias }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">HORA INICIO</label>
+            <input type="time" class="form-control" id="txtHoraInicio" name="txtHoraInicio" value="{{ actualizar_asistencias.Hora_Inicio_Asistencias }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">HORA FINAL</label>
+            <input type="time" class="form-control" id="txtHoraFinal" name="txtHoraFinal" value="{{ actualizar_asistencias.Hora_Final_Asistencias }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">FECHA TRABAJO</label>
+            <input type="date" class="form-control" id="txtFecha" name="txtFecha" value="{{ actualizar_asistencias.Fecha_Asistencias }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">COMENTARIO</label>
+            <input type="text" class="form-control" id="txtComentario" name="txtComentario" value="{{ actualizar_asistencias.Comentario_Asistencias }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary" href='/enlace_tabla_registro_asistencias/'>GUARDAR</button>
+    </form>
+</div>
+{% endblock contenedor %}
