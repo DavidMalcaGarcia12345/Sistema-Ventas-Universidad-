@@ -10,9 +10,8 @@
 
     <!-- Encabezado -->
     <div class="container my-5">
-      <div class="p-4 text-center text-light rounded-4 shadow" 
-           style="background: linear-gradient(90deg, var(--bs-purple), var(--bs-indigo));">
-        <h1 class="m-0 fw-bold">SISTEMA CONTROL DE VENTAS TAMBO</h1>
+      <div class="p-4 text-center text-light rounded-4 shadow bg-danger" >
+        <h1 class="m-0 fw-bold">SISTEMA CONTROL DE VENTAS VEGA</h1>
       </div>
     </div>
 
@@ -20,7 +19,7 @@
     <div class="container my-5">
       <div class="card shadow-lg border-0 rounded-4">
         <div class="card-body p-4">
-          <h4 class="text-center mb-4 text-primary">Ingresar al sistema</h4>
+          <h4 class="text-center mb-4 text-dark">Ingresar al sistema</h4>
 
           <form method="POST" action="">
             {% csrf_token %}
@@ -40,8 +39,7 @@
               <input type="password" name="contrasena" class="form-control" placeholder="Ingrese su contraseña" required>
             </div>
             <button type="submit"
-               class="btn w-100 text-light fw-bold" 
-               style="background-color: var(--bs-purple);">
+               class="btn w-100 text-light fw-bold bg-danger">
                Ingresar
             </button>
           </form>
@@ -53,14 +51,7 @@
     <!-- Mapa -->
     <div class="container my-5">
       <div class="rounded-4 shadow overflow-hidden">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4345.477431178597!2d-77.0696208!3d-11.9533001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cffa7d29ceaf%3A0x82f1841b635a714c!2sTambo%20Uc!5e1!3m2!1ses-419!2spe!4v1774486449869!5m2!1ses-419!2spe" 
-          width="100%" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen 
-          loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6140.280212954813!2d-77.0123832430062!3d-11.863241491926434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105da00440c42c3%3A0x4a9825ef226aba50!2sVega%20Supermayorista%20San%20Antonio!5e1!3m2!1ses-419!2spe!4v1784602863513!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     </div>
 
